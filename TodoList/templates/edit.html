@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} To-do List | Edit {% endblock %}
+
+{% block content %}
+
+{% if item %}
+
+  <form class="own_forms" method="post">
+  {% csrf_token %}
+    <div class="form-group">
+      <label>Subject</label>
+      <input type="text" class="form-control" value="{{item.subject}}" name="subject">
+    </div>
+    <div class="form-group">
+      <label>Details</label>
+      <textarea class="form-control" rows=5 name="details">{{item.details}}</textarea>
+    </div>
+    <div style="text-align: right;">
+    <button type="submit" class="btn btn-primary">Edit</button>
+    <a href="{% url 'delete' item.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
+    </div>
+  </form>
+
+{% endif %}
+
+{% endblock %}

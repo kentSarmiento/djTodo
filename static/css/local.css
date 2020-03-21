@@ -1,0 +1,20 @@
+.own_forms {
+    margin: auto;
+    width: 650px;
+}
+.own_tables {
+    margin: auto;
+    width: 650px;
+}
+.own_alerts {
+    margin: auto;
+    width: 800px;
+}
+
+.darklink {
+    color:#ffffff;
+}
+.darklink:hover {
+    color:#ffffff;
+    text-decoration: underline;
+}
