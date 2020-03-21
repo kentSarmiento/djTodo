@@ -32,3 +32,23 @@ def undone(request, id):
     item.completed = False
     item.save()
     return redirect('home')
+
+def edit(request, id):
+    context={}
+
+    if request.method == 'POST':
+        item = List.objects.get(pk=id)
+        form = ListForm(request.POST or None, instance=item)
+
+        if form.is_valid():
+            form.save()
+            all_items = List.objects.all
+            context={'all_items': all_items}
+
+        return redirect('home')
+
+    else:
+        item = List.objects.get(pk=id)
+        context = {'item': item}
+
+        return render(request, 'edit.html', context)

@@ -23,7 +23,7 @@
                     <a href="{% url 'undone' item.id %}"><input class="form-check-input" type="radio" checked></a>
                     </div>
                 </td>
-                <td width=95%>{{ item.subject }}</td>
+                <td width=95%><a href="{% url 'edit' item.id %}">{{ item.subject }}</a></td>
             </tr>
 
             {% else %}
@@ -34,7 +34,7 @@
                     <a href="{% url 'done' item.id %}"><input class="form-check-input" type="radio" unchecked></a>
                     </div>
                 </td>
-                <td width=95%>{{ item.subject }}</td>
+                <td width=95%><a href="{% url 'edit' item.id %}">{{ item.subject }}</a></td>
             </tr>
 
             {% endif %}
