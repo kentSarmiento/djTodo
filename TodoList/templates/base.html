@@ -32,8 +32,8 @@
             </ul>
             <form action="{% url 'home' %}" class="form-inline my-2 my-lg-0" method="POST">
                 {% csrf_token %}
-                <input class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search" name="subject">
-                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Add Task</button>
+                <input class="form-control mr-sm-2" type="search" placeholder="Add Task" aria-label="Search" name="subject">
+                <button class="btn btn-primary" type="submit">Add</button>
             </form>
         </div>
     </nav>

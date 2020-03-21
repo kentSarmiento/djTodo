@@ -16,7 +16,10 @@
       <label>Details</label>
       <textarea class="form-control" rows=5 name="details">{{item.details}}</textarea>
     </div>
-    <button type="submit" class="btn btn-outline-secondary my-2 my-sm-0">Edit Task</button>
+    <div style="text-align: right;">
+    <button type="submit" class="btn btn-primary">Edit</button>
+    <a href="{% url 'delete' item.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
+    </div>
   </form>
 
 {% endif %}

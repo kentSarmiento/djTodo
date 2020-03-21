@@ -52,3 +52,8 @@ def edit(request, id):
         context = {'item': item}
 
         return render(request, 'edit.html', context)
+
+def delete(request, id):
+    item = List.objects.get(pk=id)
+    item.delete()
+    return redirect('home')
