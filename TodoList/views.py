@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import List
 from .forms import ListForm
 
@@ -20,3 +20,15 @@ def home(request):
         all_items = List.objects.all
         context={'all_items': all_items}
         return render(request, 'home.html', context)
+
+def done(request, id):
+    item = List.objects.get(pk=id)
+    item.completed = True
+    item.save()
+    return redirect('home')
+
+def undone(request, id):
+    item = List.objects.get(pk=id)
+    item.completed = False
+    item.save()
+    return redirect('home')
