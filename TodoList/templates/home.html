@@ -4,6 +4,36 @@
 
 {% block content %}
 
-Hello world!
+{% if all_items %}
+
+    <table class="table own_tables">
+
+        <thead class="thead-dark">
+            <tr>
+                <th colspan=2> <center>Tasks</center> </th>
+            </tr>
+        </thead>
+
+        {% for item in all_items %}
+
+            {% if item.completed %}
+            <tr class="table-secondary">
+                <td width=5%></td>
+                <td width=95%>{{ item.subject }}</td>
+            </tr>
+
+            {% else %}
+
+            <tr>
+                <td width=5%></td>
+                <td width=95%>{{ item.subject }}</td>
+            </tr>
+
+            {% endif %}
+        {% endfor %}
+
+    </table>
+
+{% endif %}
 
 {% endblock %}
