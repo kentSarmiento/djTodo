@@ -4,6 +4,19 @@
 
 {% block content %}
 
+{% if messages %}
+    {% for message in messages %}
+        <div class="own_alerts alert alert-warning alert-dismissable" role="alert">
+            <button class="close" data-dismiss="alert">
+                <small><sup>x</sup></small>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor%}
+{% endif %}
+
+<br>
+
 {% if all_items %}
 
     {% if archived %}

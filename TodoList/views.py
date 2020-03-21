@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from .models import List
 from .forms import ListForm
 
@@ -11,8 +12,11 @@ def home(request):
 
         if form.is_valid():
             form.save()
+            messages.success(request, ('Task is successfully added!'))
             all_items = List.objects.filter(completed=False)
             context={'all_items': all_items}
+        else:
+            messages.warning(request, ('Task is NOT added!'))
 
         return render(request, 'home.html', context)
 
@@ -47,8 +51,11 @@ def edit(request, id):
 
         if form.is_valid():
             form.save()
+            messages.success(request, ('Task is successfully updated!'))
             all_items = List.objects.all
             context={'all_items': all_items}
+        else:
+            messages.warning(request, ('Task is NOT updated!'))
 
         return redirect('home')
 
