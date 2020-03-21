@@ -11,15 +11,20 @@ def home(request):
 
         if form.is_valid():
             form.save()
-            all_items = List.objects.all
+            all_items = List.objects.filter(completed=False)
             context={'all_items': all_items}
 
         return render(request, 'home.html', context)
 
     else:
-        all_items = List.objects.all
+        all_items = List.objects.filter(completed=False)
         context={'all_items': all_items}
         return render(request, 'home.html', context)
+
+def archive(request):
+    all_items = List.objects.filter(completed=True)
+    context={'all_items': all_items, 'archived': True}
+    return render(request, 'home.html', context)
 
 def done(request, id):
     item = List.objects.get(pk=id)

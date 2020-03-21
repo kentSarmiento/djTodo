@@ -6,3 +6,11 @@
     margin: auto;
     width: 650px;
 }
+
+.darklink {
+    color:#ffffff;
+}
+.darklink:hover {
+    color:#ffffff;
+    text-decoration: underline;
+}
